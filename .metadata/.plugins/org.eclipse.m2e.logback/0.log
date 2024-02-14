@@ -140,3 +140,15 @@ java.io.FileNotFoundException: /home/active35/eclipse-workspace/.metadata/.plugi
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-02-14 16:59:15,998 [Worker-10: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-02-14 17:00:18,738 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-02-14 17:02:27,927 [Worker-8: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Parklens:Booster:0.0.1-SNAPSHOT @ /home/active35/eclipse-workspace/Booster/pom.xml.
+2024-02-14 17:02:29,258 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-14 17:02:29,259 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/active35/eclipse-workspace/Booster/src/main/resources
+2024-02-14 17:02:29,264 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-02-14 17:02:29,265 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/active35/eclipse-workspace/Booster/src/test/resources
+2024-02-14 17:02:55,666 [Worker-11: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: 1.0:Robo:0.0.1-SNAPSHOT @ /home/active35/eclipse-workspace/Robo/pom.xml.
+2024-02-14 17:02:56,392 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-02-14 17:02:56,393 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/Robo/src/main/resources
+2024-02-14 17:02:56,405 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-02-14 17:02:56,406 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/active35/eclipse-workspace/Robo/src/test/resources
