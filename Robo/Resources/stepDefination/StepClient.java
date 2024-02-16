@@ -37,6 +37,7 @@ public void login_to_the_application() {
 public void get_dashboard_count() {
 	   db=new ADashboard(Mybrowser.driver);
        String prospects=db.prospects_count();
+       System.out.println(prospects);
 }
 
 @When("go to the client page and create one client")
