@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class ADashboard 
 {
@@ -13,46 +14,9 @@ public class ADashboard
 		public  ADashboard(WebDriver driver)
 		{
 			this.driver=driver;
+			PageFactory.initElements(driver,this);
 		}
 		
-//*****************************Get Count*********************************************************
-	/*	@FindBy (xpath="//input[@placeholder='Search By Name'] /../following-sibling::div[1]//tbody//tr")  List<WebElement> clientRecordCount;
-		@FindBy(xpath ="//input[@placeholder='Search By Name']"
-	                       + "/../following-sibling::div[1]/div/div[2]//ul//a[@aria-label='Last']") WebElement lastButton;
-		@FindBy(xpath ="//input[@placeholder='Search By Name']"
-+ "/../following-sibling::div[1]/div/div[2]//ul//a[@aria-label='Last']/../preceding-sibling::li[2]")WebElement lastPageNumber;
-        public void ClickOnLastPageButton()
-        {
-        	lastButton.click();
-        }
-        String pageNumber="";
-        public void GetLastPageNumber()
-        {   
-        	lastPageNumber.click();
-        	pageNumber=lastPageNumber.getText();
-        	
-        }
-        int a=0;
-        public void GetRowCount()
-        {
-        	a=clientRecordCount.size();
-        	 
-        }
-        public int CalculateWholeRecords() throws InterruptedException
-        {
-        	ClickOnLastPageButton();
-        	Thread.sleep(2000);
-        	GetLastPageNumber();
-        	Thread.sleep(2000);
-        	GetRowCount();
-        	int lastPageNumber = Integer.parseInt(pageNumber);
-        	int sum=(lastPageNumber-1)*10+a;
-        	System.out.println(sum);
-            return sum;
-        }*/
-		//@FindBy(xpath = "//input[@placeholder='Search By Name']")
-		//private WebElement searchInput;
-
 		@FindBy(xpath = "//input[@placeholder='Search By Name']/../following-sibling::div[1]/div/div[2]//ul//a[@aria-label='Last']")
 		private WebElement lastButton;
 
@@ -90,14 +54,14 @@ public class ADashboard
 //		    return totalCount;
 //		}
         
-		@FindBy (xpath ="//span[text()=' Dashboard']")                         WebElement dashboard;
-		@FindBy (xpath ="(//div[@class='pp-4 ppt-2'])[1]/h1")                  WebElement prospects;
-		@FindBy (xpath ="(//div[@class='pp-4 ppt-2'])[2]/h1")                  WebElement lot;
-	    @FindBy (xpath ="(//div[@class='pp-4 ppt-2'])[3]/h1")                  WebElement Stalls;
-	    @FindBy (xpath ="(//div[@class='pp-4 ppt-2'])[4]/h1")                  WebElement liveCamera;
-	    @FindBy (xpath ="(//div[@class='pp-4 ppt-2'])[5]/h1")                  WebElement downCamera;
-	    @FindBy (xpath ="(//div[@class='table-responsive'])[1]/../div/h4[2]/a")WebElement expiryThisMonth;
-	    @FindBy (xpath ="(//div[@class='table-responsive'])[3]/../div/h4[2]/a")WebElement lotMaintainance;
+		@FindBy (xpath ="//span[text()=' Dashboard']")                                WebElement dashboard;
+		@FindBy (xpath ="//h3[text()='Prospects']/../following-sibling::div/h1")      WebElement prospects;
+		@FindBy (xpath ="//h3[text()='Lots']/../following-sibling::div/h1")           WebElement lot;
+	    @FindBy (xpath ="//h3[text()='Stalls']/../following-sibling::div/h1")         WebElement Stalls;
+	    @FindBy (xpath ="//h3[text()='Live Cameras']/../following-sibling::div/h1")   WebElement liveCamera;
+	    @FindBy (xpath ="//h3[text()='Down Cameras']/../following-sibling::div/h1")   WebElement downCamera;
+	    @FindBy (xpath ="(//div[@class='table-responsive'])[1]/../div/h4[2]/a")       WebElement expiryThisMonth;
+	    @FindBy (xpath ="(//div[@class='table-responsive'])[3]/../div/h4[2]/a")       WebElement lotMaintainance;
 	    	    	    
 	  	    public String prospects_count()
 	    {

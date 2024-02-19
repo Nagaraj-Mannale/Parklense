@@ -111,6 +111,25 @@ public class Iterations
    @FindBy(xpath="//span[text()=' All Clients']") WebElement ClientDropDownButton;
    @FindBy(xpath="//span[text()=' All Clients']/../../following-sibling::div//li") 
    List<WebElement> clientsInDropDown;
+   
+   public String GetAndUseToVerifyClient(String clientname)
+   {
+	   
+	   ClientDropDownButton.click();
+	   String name="";
+	   for(WebElement cname:clientsInDropDown)
+	   {
+		   if(cname.getText().equalsIgnoreCase(clientname))
+		   {
+			   name=cname.getText();
+			   break;
+		   }
+	   }
+	   return name;
+   }
+   
+   
+   
    public void ClientsOnHomePage(String client) throws InterruptedException
    {
 	  ClientDropDownButton.click();
@@ -130,6 +149,28 @@ public class Iterations
 	  Select sel=new Select(newPageClientDrop);
 	  sel.selectByVisibleText(name);
   }
+   public String GetNewPageClient(String name)
+   {
+	  Select sel=new Select(newPageClientDrop); 
+      WebElement option =sel.getOptions().stream()     // Find the option by its visible text
+           .filter(o -> o.getText().equals(name))
+           .findFirst()
+           .orElse(null);
+   
+       String optionValue="";                         // Check if the option was found
+       if (option != null) {
+       
+       String optionTextValue = option.getText();   // Get the text and value of the option
+       optionValue = option.getAttribute("value");
+
+       System.out.println("Option Text: " + optionTextValue);
+       System.out.println("Option Value: " + optionValue);}
+    else {
+       System.out.println("Option not found");
+   }
+return optionValue;
+}
+
   
   @FindBy(xpath="//span[text()=' All Status']")WebElement statusDropDown;
   @FindBy(xpath="//div[@class='filter-dropdown']/../div[2]/ul/li") List<WebElement> statusOptions;
@@ -213,30 +254,6 @@ public class Iterations
       	 break;
         }
        }}
-   //****************************LaterOnCodes*************************************************************
-// public void scrollForEnter(WebDriver driver, WebElement element)
-// {
-//	 JavascriptExecutor js = (JavascriptExecutor) driver;
-//     js.executeScript("arguments[0].scrollIntoView({behavior: 'auto', block: 'center', inline: 'center'});", element);
-// }
-   
-   
-// public boolean VerifySaveButon()
-// {
-//	   boolean verify=saveButton.isEnabled();
-//    return verify;
-// }
-// public boolean VerifyCancelButton()
-// {
-//	   boolean verify=cancelButton.isEnabled();
-//	   return verify;
-// }
-// @FindBy(xpath="//select[@class='form-select form-select ms-2 me-2']")         WebElement pageDropDown;
-//   public boolean PageDropDown()
-//   {
-//    boolean verify=pageDropDown.isEnabled();
-//    return verify;
-//   }
-   
+
    
 }

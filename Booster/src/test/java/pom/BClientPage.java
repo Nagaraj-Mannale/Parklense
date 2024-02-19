@@ -32,6 +32,7 @@ public WebDriver driver;
     
     @FindBy(xpath="//input[@placeholder='Search By Name']/../following-sibling::div[1]//tbody/tr[1]/td[3]")        
     WebElement clientFirstRecordName;
+    @FindBy(xpath="input[@placeholder='Search By Name']/../following-sibling::div[1]//tbody/tr[1]/td[2]") WebElement ClientFirstRecordID;
     @FindBy(xpath="(//button[@class='input-group-text'])[1]")            WebElement clientStartDate;
     @FindBy(xpath="(//button[@class='input-group-text'])[2]")            WebElement clientEndDate;
    
@@ -63,6 +64,11 @@ public WebDriver driver;
    {
 	   String name=clientFirstRecordName.getText();
 	   return name;
+   }
+   public String FirstRecordClientId()
+   {
+	   String id=ClientFirstRecordID.getText();
+	   return id;
    }
     public void EnterClientName(String Name)
     {

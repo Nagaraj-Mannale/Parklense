@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class AddwordsaternativelyBytwoarrays {
 
 	
-	public static void main(String[] args) {
+	       	public static void main(String[] args) {
 		          String a = "apple mango jackfruit"; 
 		          String [] Awords=a.split(" ");
 		          String b ="kiwi grapes peach";
