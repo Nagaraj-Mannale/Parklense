@@ -39,17 +39,17 @@ public class Iterations
    @FindBy(xpath="//button[text()='Cancel']")                            WebElement cancelButton ;
    @FindBy (xpath="//button[.=' Delete']")                               WebElement deleteButton;
    @FindBy(xpath="//button[.='OK']")                                     WebElement popupOkButton;
-   public void ClickOnDeleteButton() throws AWTException, InterruptedException
+   public void ClickOnDeleteButton() 
    { 
 	  deleteButton.click();
 	  popupOkButton.click();
    }
-   public void SaveButton() throws AWTException, InterruptedException
+   public void SaveButton() 
    {
         saveButton.click();
         popupOkButton.click();
    }
-   public void CancelButton() throws AWTException, InterruptedException
+   public void CancelButton() 
    {
    	cancelButton.click();
    }
@@ -111,25 +111,7 @@ public class Iterations
    @FindBy(xpath="//span[text()=' All Clients']") WebElement ClientDropDownButton;
    @FindBy(xpath="//span[text()=' All Clients']/../../following-sibling::div//li") 
    List<WebElement> clientsInDropDown;
-   
-   public String GetAndUseToVerifyClient(String clientname)
-   {
-	   
-	   ClientDropDownButton.click();
-	   String name="";
-	   for(WebElement cname:clientsInDropDown)
-	   {
-		   if(cname.getText().equalsIgnoreCase(clientname))
-		   {
-			   name=cname.getText();
-			   break;
-		   }
-	   }
-	   return name;
-   }
-   
-   
-   
+     
    public void ClientsOnHomePage(String client) throws InterruptedException
    {
 	  ClientDropDownButton.click();
@@ -139,6 +121,7 @@ public class Iterations
 		   if(clientName.getText().equalsIgnoreCase(client))
 		   {
 			   clientName.click();
+			
 			   break;
 		   }
 	    }
@@ -149,29 +132,8 @@ public class Iterations
 	  Select sel=new Select(newPageClientDrop);
 	  sel.selectByVisibleText(name);
   }
-   public String GetNewPageClient(String name)
-   {
-	  Select sel=new Select(newPageClientDrop); 
-      WebElement option =sel.getOptions().stream()     // Find the option by its visible text
-           .filter(o -> o.getText().equals(name))
-           .findFirst()
-           .orElse(null);
-   
-       String optionValue="";                         // Check if the option was found
-       if (option != null) {
-       
-       String optionTextValue = option.getText();   // Get the text and value of the option
-       optionValue = option.getAttribute("value");
 
-       System.out.println("Option Text: " + optionTextValue);
-       System.out.println("Option Value: " + optionValue);}
-    else {
-       System.out.println("Option not found");
-   }
-return optionValue;
-}
 
-  
   @FindBy(xpath="//span[text()=' All Status']")WebElement statusDropDown;
   @FindBy(xpath="//div[@class='filter-dropdown']/../div[2]/ul/li") List<WebElement> statusOptions;
  
@@ -254,6 +216,46 @@ return optionValue;
       	 break;
         }
        }}
+ 
+     //----------------------------------------------For Verification-----------------------------------------------
+     //Featching id by client name from the dropdown...
+     public String GetNewPageClient(String name)
+     {
+  	  Select sel=new Select(newPageClientDrop); 
+        WebElement option =sel.getOptions().stream()     // Find the option by its visible text
+             .filter(o -> o.getText().equals(name))
+             .findFirst()
+             .orElse(null);
+     
+         String optionValue="";  
+                                 // Check if the option was found
+         if (option != null) {
+         
+         //String optionTextValue = option.getText();   // Get the text and value of the option
+         optionValue = option.getAttribute("value");
 
+         //System.out.println("Option Text: " + optionTextValue);
+         System.out.println("Option Value: " + optionValue);}
+      else {
+         System.out.println("Option not found");
+     }
+  return optionValue;
+  }     
+
+public String GetNamefromHomepageClientDropdown(String clientname)
+     {
+  	   
+  	   ClientDropDownButton.click();
+  	   String name="";
+  	   for(WebElement cname:clientsInDropDown)
+  	   {
+  		   if(cname.getText().equalsIgnoreCase(clientname))
+  		   {
+  			   name=cname.getText();
+  			   break;
+  		   }
+  	   }
+  	   return name;
+     }
    
 }

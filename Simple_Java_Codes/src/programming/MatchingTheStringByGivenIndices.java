@@ -1,6 +1,6 @@
 package programming;
 
-public class StringMatching {
+public class MatchingTheStringByGivenIndices {
 
   
         

@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "./ParklenseFeature/BClient/Client-End-to-End.feature",
                      glue = {"stepdefination","myBrowsers"},
-                   plugin = {"html:./target/Client/creation.html"})
+                   plugin = {"html:./target/Client/End-to-end.html"})
 
               
 

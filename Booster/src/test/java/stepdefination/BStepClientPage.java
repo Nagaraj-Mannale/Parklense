@@ -3,6 +3,7 @@ package stepdefination;
 import java.awt.AWTException;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
 import commonComponents.Iterations;
 import io.cucumber.java.en.Then;
@@ -11,6 +12,7 @@ import myBrowsers.Browser;
 import pom.ADashboard;
 import pom.ALogin;
 import pom.BClientPage;
+import pom.HAttributeValue;
 
 public class BStepClientPage 
 {
@@ -18,6 +20,7 @@ public class BStepClientPage
 	BClientPage cb;
 	Iterations it;
 	ADashboard ad; 
+	HAttributeValue av;
 	
 	 @When("they log in to their account")
 	    public void logInToAccount() throws InterruptedException 
@@ -194,8 +197,12 @@ public class BStepClientPage
 		String clientName;
 		String clientId;
 		@When("Get one recently created client	id")
-		public void featchOneclientIdAndNameOfclient()
+		public void featchOneclientIdAndNameOfclientFromclientHomepage()
 		{
+			
+			it=new Iterations(Browser.driver);
+	    	it.clickOnLinkByText("Clients");
+	    	cb=new BClientPage(Browser.driver);
 			clientName=cb.FirstRecordClientName();
 			clientId=cb.FirstRecordClientId();
 			
@@ -203,52 +210,149 @@ public class BStepClientPage
 		@Then("Verify in User home, New and Edit page")
 		public void verify_in_user_home_new_and_edit_page() {
 			it.clickOnLinkByText("Users");
-			String name=it.GetAndUseToVerifyClient(clientName);
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
+			
 			it.NewButton();
-			it.SelectNewPageClient(clientName);
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("New Page ID :-"+NewId+"Home page id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
 	    	
+	    	it.EditICon();
+	    	String Editid=it.GetNewPageClient(clientName);
+		    int editPageId=Integer.parseInt(Editid);
+		    System.out.println(editPageId);
+		    Assert.assertEquals("Id is not matching", editPageId, HomeId);
+		    it.CancelButton();
 		     
 		}
 
 		@Then("Verify in Site home, New and Edit page")
 		public void verify_in_site_home_new_and_edit_page() {
-		     
+			it.clickOnLinkByText("Sites");
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("Site New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
+	    	
+	    	it.EditICon();
+	    	String Editid=it.GetNewPageClient(clientName);
+		    int editPageId=Integer.parseInt(Editid);
+		    System.out.println("Site Edit page client Id:-"+editPageId);
+		    Assert.assertEquals("Id is not matching", editPageId, HomeId);
+		    it.CancelButton();
 		     
 		}
+		
 
-		@Then("Verify in home, New and Edit page")
+		@Then("Verify in Lot home and New page")
 		public void verify_in_home_new_and_edit_page() {
-		     
+			it.clickOnLinkByText("Lots");
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("Lot New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
+	    	
+	    	
 		     
 		}
 
 		@Then("Verify in Stalls home page")
 		public void verify_in_stalls_home_page() {
-		     
+			it.clickOnLinkByText("Lots");
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("Stalls New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
 		     
 		}
 
-		@Then("Verify in Camera home, New and Edit page")
-		public void verify_in_camera_home_new_and_edit_page() {
-		     
+		@Then("Verify in Camera home and New page")
+		public void verify_in_camera_home_new_and_edit_page() 
+		{
+			it.clickOnLinkByText("Camera");
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("Camera New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
 		     
 		}
 
 		@Then("Verify in Attribute value home, New and Edit page")
 		public void verify_in_attribute_value_home_new_and_edit_page() {
+			it.clickOnLinkByText("Settings");
+			it.ClickOnSettingLinksByText("Attribute Values");
+			
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			av=new HAttributeValue(Browser.driver);
+			String id=av.getIdByLabelText(clientName);
+			System.out.println(id);
+			System.out.println("null");
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("Lot New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton();
 		     
-		     
+	    	it.EditICon();
+	    	String Editid=it.GetNewPageClient(clientName);
+		    int editPageId=Integer.parseInt(Editid);
+		    System.out.println("AttributeValue Edit page client Id:-"+editPageId);
+		    Assert.assertEquals("Id is not matching", editPageId, HomeId);
+		    it.CancelButton();
 		}
 
 		@Then("Verify in Client-role home, New and Edit page")
-		public void verify_in_client_role_home_new_and_edit_page() {
-		     
+		public void verify_in_client_role_home_new_and_edit_page() 
+		{
+			it.clickOnLinkByText("Settings");
+			it.ClickOnSettingLinksByText("Client Roles");
+			String name=it.GetNamefromHomepageClientDropdown(clientName);
+			Assert.assertEquals("client is not available",clientName,name);
+			
+			it.NewButton();
+			String id=it.GetNewPageClient(clientName);
+			int NewId=Integer.parseInt(id);
+			int HomeId=Integer.parseInt(clientId);
+			System.out.println("ClientRole New Page client ID :-"+NewId+" Home page client id:-"+HomeId);
+	    	Assert.assertEquals("Id is not matching", NewId, HomeId);
+	    	it.CancelButton(); 
 		     
 		}
 
 		@Then("logout from the application")
-		public void logout_from_the_application() {
+		public void logout_from_the_application() 
+		{
 		     
 		     
 		} 

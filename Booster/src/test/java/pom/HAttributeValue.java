@@ -1,7 +1,9 @@
 package pom;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,9 +64,22 @@ public class HAttributeValue {
  	   String name=avName.getText();
  	   return name;
     }
-    
-    
-    
+    @FindBy(xpath = "//ng-select[@formcontrolname='MultiselectControl']//div/following-sibling::ng-dropdown-panel/div/div[2]/div") List<WebElement> drop;;
+
+    public String getIdByLabelText(String labelText) {
+        try {
+            // Iterate through the dropdown options to find the matching element
+            for (WebElement optionElement : drop) {
+                if (optionElement.getText().contains(labelText)) {
+                    // Retrieve the id attribute from the found element
+                    return optionElement.getAttribute("id");
+                }
+            }
+            return "Element with text '" + labelText + "' not found";
+        } catch (NoSuchElementException e) {
+            return "Dropdown options not found";
+        }
+    }
     
     
     

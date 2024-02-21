@@ -2,7 +2,7 @@ package programming;
 
 import java.util.ArrayList;
 
-public class Removewordsfromsentence {
+public class RemovewordsByUsingfirstCharfromsentence {
 public static void main(String[] args) {
 	           String a = "The faverate dish of all ages was apple pie";
 	          String [] words=a.split(" ");
