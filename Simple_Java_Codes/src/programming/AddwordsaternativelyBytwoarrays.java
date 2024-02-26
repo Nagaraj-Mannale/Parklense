@@ -13,8 +13,7 @@ public class AddwordsaternativelyBytwoarrays {
 		        	  for(int i=0;i<Awords.length;i++)
 		        	  {
 		        		  result.add("'"+Awords[i]+"'");
-		        		 // System.out.println();
-		        		  for(int j=0;j<=i;j++)
+			        		  for(int j=0;j<=i;j++)
 		        		  {
 		        			 if(i==j)
 		        			 { 

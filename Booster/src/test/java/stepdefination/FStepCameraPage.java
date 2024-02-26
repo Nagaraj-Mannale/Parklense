@@ -27,7 +27,7 @@ public class FStepCameraPage
  @When("they click on the camera new button")
 	public void they_click_on_the_camera_new_button() {
 	    
-	    it.NewButton();
+	    it.ClickOnNewButton();
 	}
 
 	@When("they select the lot")

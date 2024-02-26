@@ -11,7 +11,7 @@ public class StepLogin
 {
 	public WebDriver driver;
 	public ALogin lp;
-	@Given("the user launch the application")
+	@Given("the user launches the application")
 	public void launch_the_application() 
 	{
 		lp=new ALogin(Browser.driver);

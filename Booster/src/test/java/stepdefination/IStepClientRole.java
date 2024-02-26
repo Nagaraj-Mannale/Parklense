@@ -52,7 +52,7 @@ public class IStepClientRole
 
 	@When("they click on the New Button")
 	public void they_click_on_the_new_button() {
-	  it.NewButton();
+	  it.ClickOnNewButton();
 	}
 
 	@When("enter the client-role title")

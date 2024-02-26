@@ -1,7 +1,7 @@
 Feature: Verify the New-Client Creation
 
   Scenario: Verify Client Creation
-    Given the user launch the application
+    Given the user launches the application
     When they log in to their account
     When they click on the Client link
     When they click on the new button

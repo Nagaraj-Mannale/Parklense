@@ -3,7 +3,7 @@ package stepdefination;
 import java.awt.AWTException;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+
 
 import commonComponents.Iterations;
 import io.cucumber.java.en.Then;
@@ -45,7 +45,7 @@ public class BStepClientPage
 		public void ClickOnNewButton()  
 		{
 		it=new Iterations(Browser.driver);	
-		 it.NewButton();
+		 it.ClickOnNewButton();
 		}
 	 
 	 @Then("the user on the new client page")
@@ -196,7 +196,7 @@ public class BStepClientPage
 		}
 		String clientName;
 		String clientId;
-		@When("Get one recently created client	id")
+		@When("get one recently created client ID")
 		public void featchOneclientIdAndNameOfclientFromclientHomepage()
 		{
 			
@@ -207,13 +207,13 @@ public class BStepClientPage
 			clientId=cb.FirstRecordClientId();
 			
 		}
-		@Then("Verify in User home, New and Edit page")
+		@Then("verify in User home, New and Edit page")
 		public void verify_in_user_home_new_and_edit_page() {
 			it.clickOnLinkByText("Users");
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);
@@ -230,13 +230,13 @@ public class BStepClientPage
 		     
 		}
 
-		@Then("Verify in Site home, New and Edit page")
+		@Then("verify in Site home, New and Edit page")
 		public void verify_in_site_home_new_and_edit_page() {
 			it.clickOnLinkByText("Sites");
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);
@@ -254,13 +254,13 @@ public class BStepClientPage
 		}
 		
 
-		@Then("Verify in Lot home and New page")
+		@Then("verify in Lot home and New page")
 		public void verify_in_home_new_and_edit_page() {
 			it.clickOnLinkByText("Lots");
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);
@@ -272,13 +272,13 @@ public class BStepClientPage
 		     
 		}
 
-		@Then("Verify in Stalls home page")
+		@Then("verify in Stalls home page")
 		public void verify_in_stalls_home_page() {
 			it.clickOnLinkByText("Lots");
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);
@@ -288,14 +288,14 @@ public class BStepClientPage
 		     
 		}
 
-		@Then("Verify in Camera home and New page")
+		@Then("verify in Camera home and New page")
 		public void verify_in_camera_home_new_and_edit_page() 
 		{
 			it.clickOnLinkByText("Camera");
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);
@@ -305,7 +305,7 @@ public class BStepClientPage
 		     
 		}
 
-		@Then("Verify in Attribute value home, New and Edit page")
+		@Then("verify in Attribute value home, New and Edit page")
 		public void verify_in_attribute_value_home_new_and_edit_page() {
 			it.clickOnLinkByText("Settings");
 			it.ClickOnSettingLinksByText("Attribute Values");
@@ -313,7 +313,7 @@ public class BStepClientPage
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			av=new HAttributeValue(Browser.driver);
 			String id=av.getIdByLabelText(clientName);
 			System.out.println(id);
@@ -332,7 +332,7 @@ public class BStepClientPage
 		    it.CancelButton();
 		}
 
-		@Then("Verify in Client-role home, New and Edit page")
+		@Then("verify in Client-role home, New and Edit page")
 		public void verify_in_client_role_home_new_and_edit_page() 
 		{
 			it.clickOnLinkByText("Settings");
@@ -340,7 +340,7 @@ public class BStepClientPage
 			String name=it.GetNamefromHomepageClientDropdown(clientName);
 			Assert.assertEquals("client is not available",clientName,name);
 			
-			it.NewButton();
+			it.ClickOnNewButton();
 			String id=it.GetNewPageClient(clientName);
 			int NewId=Integer.parseInt(id);
 			int HomeId=Integer.parseInt(clientId);

@@ -63,7 +63,7 @@ public class Iterations
    { 
 	  editbutton.click();
    }
-   public void NewButton()
+   public void ClickOnNewButton()
    {
    	newButton.click();
    }
